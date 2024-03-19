@@ -1,0 +1,140 @@
+14.29.34  [main] 	Initializing Control Panel
+14.29.34  [main] 	Windows Version:  Home  64-bit
+14.29.34  [main] 	XAMPP Version: 8.2.12
+14.29.34  [main] 	Control Panel Version: 3.3.0  [ Compiled: Apr 6th 2021 ]
+14.29.34  [main] 	You are not running with administrator rights! This will work for
+14.29.34  [main] 	most application stuff but whenever you do something with services
+14.29.34  [main] 	there will be a security dialogue or things will break! So think 
+14.29.34  [main] 	about running this application with administrator rights!
+14.29.34  [main] 	XAMPP Installation Directory: "c:\users\jpvit\laravellisamppi\xampp\"
+14.29.34  [main] 	Checking for prerequisites
+14.29.35  [main] 	All prerequisites found
+14.29.35  [main] 	Initializing Modules
+14.29.35  [Apache] 	XAMPP Apache is already running on port 80
+14.29.35  [Apache] 	XAMPP Apache is already running on port 443
+14.29.35  [mysql] 	XAMPP MySQL is already running on port 3306
+14.29.35  [main] 	Starting Check-Timer
+14.29.35  [main] 	Control Panel Ready
+14.39.49  [Apache] 	Status change detected: stopped
+14.39.49  [Apache] 	Error: Apache shutdown unexpectedly.
+14.39.49  [Apache] 	This may be due to a blocked port, missing dependencies, 
+14.39.49  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+14.39.49  [Apache] 	Press the Logs button to view error logs and check
+14.39.49  [Apache] 	the Windows Event Viewer for more clues
+14.39.49  [Apache] 	If you need more help, copy and post this
+14.39.49  [Apache] 	entire log window on the forums
+14.39.50  [mysql] 	Status change detected: stopped
+14.39.50  [mysql] 	Error: MySQL shutdown unexpectedly.
+14.39.50  [mysql] 	This may be due to a blocked port, missing dependencies, 
+14.39.50  [mysql] 	improper privileges, a crash, or a shutdown by another method.
+14.39.50  [mysql] 	Press the Logs button to view error logs and check
+14.39.50  [mysql] 	the Windows Event Viewer for more clues
+14.39.50  [mysql] 	If you need more help, copy and post this
+14.39.50  [mysql] 	entire log window on the forums
+14.39.54  [main] 	Deinitializing Modules
+14.39.54  [main] 	Deinitializing Control Panel
+
+13.23.07  [main] 	Initializing Control Panel
+13.23.07  [main] 	Windows Version:  Home  64-bit
+13.23.07  [main] 	XAMPP Version: 8.2.12
+13.23.07  [main] 	Control Panel Version: 3.3.0  [ Compiled: Apr 6th 2021 ]
+13.23.07  [main] 	You are not running with administrator rights! This will work for
+13.23.07  [main] 	most application stuff but whenever you do something with services
+13.23.07  [main] 	there will be a security dialogue or things will break! So think 
+13.23.07  [main] 	about running this application with administrator rights!
+13.23.07  [main] 	XAMPP Installation Directory: "c:\users\jpvit\laravellisamppi\xampp\"
+13.23.07  [main] 	Checking for prerequisites
+13.23.08  [main] 	All prerequisites found
+13.23.08  [main] 	Initializing Modules
+13.23.08  [main] 	Starting Check-Timer
+13.23.08  [main] 	Control Panel Ready
+13.23.09  [Apache] 	Attempting to start Apache app...
+13.23.09  [Apache] 	Status change detected: running
+13.23.11  [mysql] 	Attempting to start MySQL app...
+13.23.11  [mysql] 	Status change detected: running
+14.39.49  [Apache] 	Attempting to stop Apache (PID: 10728)
+14.39.49  [Apache] 	Attempting to stop Apache (PID: 3416)
+14.39.49  [Apache] 	Status change detected: stopped
+14.39.50  [mysql] 	Attempting to stop MySQL app...
+14.39.50  [mysql] 	Status change detected: stopped
+14.39.57  [main] 	Deinitializing Modules
+14.39.57  [main] 	Deinitializing Control Panel
+
+12.30.51  [main] 	Initializing Control Panel
+12.30.51  [main] 	Windows Version:  Home  64-bit
+12.30.51  [main] 	XAMPP Version: 8.2.12
+12.30.51  [main] 	Control Panel Version: 3.3.0  [ Compiled: Apr 6th 2021 ]
+12.30.51  [main] 	You are not running with administrator rights! This will work for
+12.30.51  [main] 	most application stuff but whenever you do something with services
+12.30.51  [main] 	there will be a security dialogue or things will break! So think 
+12.30.51  [main] 	about running this application with administrator rights!
+12.30.51  [main] 	XAMPP Installation Directory: "c:\users\jpvit\laravellisamppi\xampp\"
+12.30.51  [main] 	Checking for prerequisites
+12.30.52  [main] 	All prerequisites found
+12.30.52  [main] 	Initializing Modules
+12.30.52  [main] 	Starting Check-Timer
+12.30.52  [main] 	Control Panel Ready
+12.30.54  [Apache] 	Attempting to start Apache app...
+12.30.54  [Apache] 	Status change detected: running
+12.30.56  [mysql] 	Attempting to start MySQL app...
+12.30.56  [mysql] 	Status change detected: running
+15.45.01  [Apache] 	Attempting to stop Apache (PID: 4704)
+15.45.01  [Apache] 	Attempting to stop Apache (PID: 6804)
+15.45.01  [Apache] 	Status change detected: stopped
+15.45.02  [mysql] 	Attempting to stop MySQL app...
+15.45.02  [mysql] 	Status change detected: stopped
+15.45.25  [main] 	Deinitializing Modules
+15.45.25  [main] 	Deinitializing Control Panel
+
+11.57.40  [main] 	Initializing Control Panel
+11.57.40  [main] 	Windows Version:  Home  64-bit
+11.57.40  [main] 	XAMPP Version: 8.2.12
+11.57.40  [main] 	Control Panel Version: 3.3.0  [ Compiled: Apr 6th 2021 ]
+11.57.40  [main] 	You are not running with administrator rights! This will work for
+11.57.40  [main] 	most application stuff but whenever you do something with services
+11.57.40  [main] 	there will be a security dialogue or things will break! So think 
+11.57.40  [main] 	about running this application with administrator rights!
+11.57.40  [main] 	XAMPP Installation Directory: "c:\users\jpvit\laravellisamppi\xampp\"
+11.57.40  [main] 	Checking for prerequisites
+11.57.42  [main] 	All prerequisites found
+11.57.42  [main] 	Initializing Modules
+11.57.42  [main] 	Starting Check-Timer
+11.57.42  [main] 	Control Panel Ready
+11.57.43  [Apache] 	Attempting to start Apache app...
+11.57.44  [Apache] 	Status change detected: running
+11.57.44  [mysql] 	Attempting to start MySQL app...
+11.57.45  [mysql] 	Status change detected: running
+12.38.24  [Apache] 	Attempting to stop Apache (PID: 16004)
+12.38.24  [Apache] 	Attempting to stop Apache (PID: 13188)
+12.38.24  [Apache] 	Status change detected: stopped
+12.38.24  [mysql] 	Attempting to stop MySQL app...
+12.38.24  [mysql] 	Status change detected: stopped
+13.35.25  [main] 	Deinitializing Modules
+13.35.25  [main] 	Deinitializing Control Panel
+
+13.56.06  [main] 	Initializing Control Panel
+13.56.06  [main] 	Windows Version:  Home  64-bit
+13.56.06  [main] 	XAMPP Version: 8.2.12
+13.56.06  [main] 	Control Panel Version: 3.3.0  [ Compiled: Apr 6th 2021 ]
+13.56.06  [main] 	You are not running with administrator rights! This will work for
+13.56.06  [main] 	most application stuff but whenever you do something with services
+13.56.06  [main] 	there will be a security dialogue or things will break! So think 
+13.56.06  [main] 	about running this application with administrator rights!
+13.56.06  [main] 	XAMPP Installation Directory: "c:\users\jpvit\laravellisamppi\xampp\"
+13.56.06  [main] 	Checking for prerequisites
+13.56.07  [main] 	All prerequisites found
+13.56.07  [main] 	Initializing Modules
+13.56.07  [main] 	Starting Check-Timer
+13.56.07  [main] 	Control Panel Ready
+13.56.09  [Apache] 	Attempting to start Apache app...
+13.56.10  [Apache] 	Status change detected: running
+13.56.10  [mysql] 	Attempting to start MySQL app...
+13.56.10  [mysql] 	Status change detected: running
+15.30.23  [Apache] 	Attempting to stop Apache (PID: 13844)
+15.30.23  [Apache] 	Attempting to stop Apache (PID: 7056)
+15.30.23  [Apache] 	Status change detected: stopped
+15.30.24  [mysql] 	Attempting to stop MySQL app...
+15.30.24  [mysql] 	Status change detected: stopped
+16.14.12  [main] 	Deinitializing Modules
+16.14.12  [main] 	Deinitializing Control Panel
+
