@@ -72,6 +72,6 @@ echo _gettext("Containing the word:");
 
     public function getSourceContext()
     {
-        return new Source("", "filter.twig", "C:\\Users\\jpvit\\laravellisamppi\\xampp\\phpMyAdmin\\templates\\filter.twig");
+        return new Source("", "filter.twig", "C:\\Users\\Nico Kojo\\Documents\\GitHub\\DynaaminenProkkis\\xampp\\phpMyAdmin\\templates\\filter.twig");
     }
 }

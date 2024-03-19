@@ -20,8 +20,8 @@
  */
 //the space is needed for windows include paths with trailing backslash
 // http://pear.php.net/bugs/bug.php?id=19482
-if ('C:\Users\jpvit\laravellisamppi\xampp\php\pear ' != '@'.'include_path'.'@ ') {
-    ini_set('include_path', trim('C:\Users\jpvit\laravellisamppi\xampp\php\pear '). PATH_SEPARATOR .  get_include_path());
+if ('C:\Users\Nico Kojo\Documents\GitHub\DynaaminenProkkis\xampp\php\pear ' != '@'.'include_path'.'@ ') {
+    ini_set('include_path', trim('C:\Users\Nico Kojo\Documents\GitHub\DynaaminenProkkis\xampp\php\pear '). PATH_SEPARATOR .  get_include_path());
     $raw = false;
 } else {
     // this is a raw, uninstalled pear, either a cvs checkout, or php distro

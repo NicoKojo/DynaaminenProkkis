@@ -1,4 +1,4 @@
-#!C:\Users\jpvit\laravellisamppi\xampp\php\.\php.exe
+#!C:\Users\Nico Kojo\Documents\GitHub\DynaaminenProkkis\xampp\php\.\php.exe
 <?php
 /**
  * The Predefined Classes/Constants array script generator.
@@ -98,7 +98,7 @@ if ($args->isDefined('v')) {
 if ($args->isDefined('o')) {
     $o = $args->getValue('o');
     if (strpos($o, '@'.'php_dir@')) {
-        $o = str_replace('@'.'php_dir@', 'C:\Users\jpvit\laravellisamppi\xampp\php\pear', $o);
+        $o = str_replace('@'.'php_dir@', 'C:\Users\Nico Kojo\Documents\GitHub\DynaaminenProkkis\xampp\php\pear', $o);
     }
     if (is_dir($o) && (is_writable($o))) {
         /* Directory where to write
@@ -113,7 +113,7 @@ if ($args->isDefined('o')) {
         exit(1);
     }
 } else {
-    $target_directory = 'C:\Users\jpvit\laravellisamppi\xampp\php\pear' . $ds . 'PHP' .$ds . 'CompatInfo' . $ds;
+    $target_directory = 'C:\Users\Nico Kojo\Documents\GitHub\DynaaminenProkkis\xampp\php\pear' . $ds . 'PHP' .$ds . 'CompatInfo' . $ds;
 }
 
 // enable

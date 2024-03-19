@@ -1,3 +1,5 @@
 
 xampp/apache/conf/extra/httpd-autoindex.conf
 xampp/apache/conf/extra/httpd-autoindex.conf
+xampp/apache/conf/extra/httpd-autoindex.conf
+*.conf

@@ -1,4 +1,4 @@
-#!"C:\Users\jpvit\laravellisamppi\xampp\perl\bin\perl.exe"
+#!"C:\Users\Nico Kojo\Documents\GitHub\DynaaminenProkkis\xampp\perl\bin\perl.exe"
 ##
 ##  printenv -- demo CGI program which just prints its environment
 ##
