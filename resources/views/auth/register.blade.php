@@ -16,18 +16,6 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <div class="radio-button-group">
-    <br>
-    <input type="radio" id="scout" name="user-type" value="scout" {{ old('user-type') == 'scout' ? 'checked' : '' }}>
-    <label for="scout" class="radio-label">Scout</label>
-
-    <input type="radio" id="parent" name="user-type" value="parent" {{ old('user-type') == 'parent' ? 'checked' : '' }}>
-    <label for="parent" class="radio-label">Parent</label>
-
-    <input type="radio" id="attendee" name="user-type" value="attendee" {{ old('user-type') == 'attendee' ? 'checked' : '' }}>
-    <label for="attendee" class="radio-label">Attendee</label>
-</div>
-
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
