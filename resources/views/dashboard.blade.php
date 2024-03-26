@@ -9,7 +9,7 @@
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("Olet kirjautunut sisälle, tervetuloa") }}
+                    Olet kirjautunut sisälle, tervetuloa {{ Auth::user()->name }}!
 
                     <form method="GET" action="{{ route('juhosivu') }}">
                         <button type="submit">Go to Juho Sivu</button>
@@ -68,5 +68,17 @@
         </div>
     </div>
 </div>
+
+<div class="p-6 text-gray-900">
+    Tämä on salainen partio sivu!
+
+    @if(Auth::user()->role == 'scout')
+        <form method="GET" action="{{ route('partio') }}">
+            <button type="submit">Partiolaisille</button>
+        </form>
+    @endif
+</div>
+
+    
 
 </x-app-layout>

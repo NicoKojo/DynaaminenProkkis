@@ -17,11 +17,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/partio', function () {
+    return view('partio');
+})->middleware('role:scout');
+
 Route::view('/juhosivu', 'juhosivu')->name('juhosivu');
 Route::view('/kalenteri', 'kalenteri')->name('kalenteri');
 Route::view('/lippukunta', 'lippukunta')->name('lippukunta');
 Route::view('/tapahtumat', 'tapahtumat')->name('tapahtumat');
-
+Route::view('/partio', 'partio')->name('partio');
 
 
 require __DIR__.'/auth.php';
