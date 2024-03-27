@@ -31,5 +31,7 @@ Route::view('/partio', 'partio')->name('partio');
 Route::get('/events/create', [EventController::class, 'create'])->name('events.create');  //tapahtuma routet
 Route::post('/events', [EventController::class, 'store'])->name('events.store');
 
+Route::get('/tapahtumat', [EventController::class, 'index'])->name('tapahtumat');
+
 
 require __DIR__.'/auth.php';

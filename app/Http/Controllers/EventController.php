@@ -26,4 +26,10 @@ class EventController extends Controller
 
         return redirect()->route('tapahtumat')->with('success', 'Event created successfully.'); // tämä palauttaa halutun sivun sen jälkeen kun tapahtuma on luotu onnistuneesti
     }
+
+    public function index()
+    {
+        $events = Event::all();
+        return view('tapahtumat', compact('events'));
+    }
 }
