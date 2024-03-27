@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,9 @@ Route::view('/kalenteri', 'kalenteri')->name('kalenteri');
 Route::view('/lippukunta', 'lippukunta')->name('lippukunta');
 Route::view('/tapahtumat', 'tapahtumat')->name('tapahtumat');
 Route::view('/partio', 'partio')->name('partio');
+
+Route::get('/events/create', [EventController::class, 'create'])->name('events.create');  //tapahtuma routet
+Route::post('/events', [EventController::class, 'store'])->name('events.store');
 
 
 require __DIR__.'/auth.php';

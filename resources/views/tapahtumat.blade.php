@@ -12,6 +12,6 @@
 
 <div> Suomun solmukurssi 21.2.2025</div>
 
-
+<a href="{{ route('events.create') }}" class="btn btn-primary">Luo tapahtuma</a>
 
 </x-app-layout>
