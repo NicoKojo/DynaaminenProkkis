@@ -18,10 +18,10 @@
         @foreach ($events as $event)
             <div class="border rounded p-4 mb-4">
                 <h3 class="font-semibold text-lg">{{ $event->name }}</h3>
-                <p><strong>Location:</strong> {{ $event->location }}</p>
-                <p><strong>Start Time:</strong> {{ $event->start_time }}</p>
-                <p><strong>Duration (Days):</strong> {{ $event->duration_days }}</p>
-                <p><strong>Description:</strong> {{ $event->description }}</p>
+                <p><strong>Paikka:</strong> {{ $event->location }}</p>
+                <p><strong>Aloitus aika:</strong> {{ $event->start_time }}</p>
+                <p><strong>Kesto (Päivissä):</strong> {{ $event->duration_days }}</p>
+                <p><strong>Kuvaus:</strong> {{ $event->description }}</p>
             </div>
         @endforeach
     </div>
