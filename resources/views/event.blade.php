@@ -28,6 +28,7 @@
         <textarea id="description" name="description" required></textarea>
     </div>
     <button type="submit">Luo tapahtuma</button>
+
 </form>
 
 

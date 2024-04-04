@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\Registration;
 
 class EventController extends Controller
 {
@@ -32,4 +33,31 @@ class EventController extends Controller
         $events = Event::all();
         return view('tapahtumat', compact('events'));
     }
+
+    public function registerForm()
+    {
+        return view('register');
+    }
+
+    public function registerSubmit(Request $request)
+{
+    $request->validate([
+        'first_name' => 'required',
+        'last_name' => 'required',
+        'email' => 'required|email',
+    ]);
+
+    $registration = new Registration();
+    $registration->first_name = $request->first_name;
+    $registration->last_name = $request->last_name;
+    $registration->email = $request->email;
+    $registration->save();
+
+    return redirect()->route('events.index')->with('success', 'Ilmoittautuminen onnistui!');
+}
+
+
+
+
+
 }
