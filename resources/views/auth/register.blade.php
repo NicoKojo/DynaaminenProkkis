@@ -16,11 +16,41 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <!--Roolit-->
-        <div class="radio-button-group">
+
+
+    <script> //tää piilottaa kenttiä ja oikeen JAVASCRIPTILLÄ
+       function toggleAdditionalFields(role) {
+        const additionalFields = document.getElementById('additional-fields');
+
+        if (role === 'scout') {
+            additionalFields.style.display = 'block';
+        } else {
+            additionalFields.style.display = 'none';
+        }
+    }
+
+    window.addEventListener('click', function(event) {
+        const scoutRadio = document.getElementById('scout');
+        const additionalFields = document.getElementById('additional-fields');
+
+        if (event.target !== scoutRadio && !scoutRadio.contains(event.target)) {
+            if (event.target !== additionalFields && !additionalFields.contains(event.target) && event.target.type !== 'password') {
+                additionalFields.style.display = 'none';
+            }
+        }
+    });
+        </script>
+
+
+
+
+
+    <!--Roolit-->
+    <div class="radio-button-group">
     <br>
-    <input type="radio" id="scout" name="user-type" value="scout" {{ old('user-type') == 'scout' ? 'checked' : '' }}>
+    <input type="radio" id="scout" name="user-type" value="scout" onclick="toggleAdditionalFields('scout')" {{ old('user-type') == 'scout' ? 'checked' : '' }}>
     <label for="scout" class="radio-label">Scout</label>
+    
 
     <input type="radio" id="parent" name="user-type" value="parent" {{ old('user-type') == 'parent' ? 'checked' : '' }}>
     <label for="parent" class="radio-label">Parent</label>
@@ -29,7 +59,20 @@
     <label for="attendee" class="radio-label">Attendee</label>
 </div>
 
-        <!-- Password -->
+
+    <!--Tässä on piilotettavat kentät-->
+    <div id="additional-fields" style="display: none;"> 
+      
+        <input type="text" name="country" id="country" placeholder="maa">
+        <br>
+        <input type="text" name="scoutid" id="scoutid" placeholder="partio id">
+        <br>
+        <input type="text" name="troop" id="troop" placeholder="lippukunta">
+        <br>
+        <input type="text" name="circle" id="circle" placeholder="piiri">
+    </div>
+
+
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
 
@@ -41,7 +84,7 @@
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
-        <!-- Confirm Password -->
+        
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 

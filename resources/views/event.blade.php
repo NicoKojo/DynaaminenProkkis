@@ -20,8 +20,8 @@
         <input type="datetime-local" id="start_time" name="start_time" required>
     </div>
     <div>
-        <label for="duration_days">Kesto (päivissä):</label>
-        <input type="number" id="duration_days" name="duration_days" required>
+        <label for="end_time">Lopetus aika:</label>
+        <input type="datetime-local" id="end_time" name="end_time" required>
     </div>
     <div>
         <label for="description">Kuvaus:</label>

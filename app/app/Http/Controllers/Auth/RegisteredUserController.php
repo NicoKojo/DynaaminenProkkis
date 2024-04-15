@@ -54,7 +54,11 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'user-type' => ['required', 'string', 'in:scout,parent,attendee']
+            'user-type' => ['required', 'string', 'in:scout,parent,attendee'],
+            'country' => ['nullable', 'string', 'max:255'],
+            'scoutid' => ['nullable', 'string', 'max:255'],
+            'troop' => ['nullable', 'string', 'max:255'],
+            'circle' => ['nullable', 'string', 'max:255'],
         ]);
     
         $role = $request->input('user-type'); // Retrieve the selected role from the request

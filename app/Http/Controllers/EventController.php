@@ -19,9 +19,11 @@ class EventController extends Controller
             'name' => 'required',
             'location' => 'required',
             'start_time' => 'required|date',
-            'duration_days' => 'required|numeric',
+            'end_time' => 'required|date',
             'description' => 'required',
         ]);
+
+       
 
         Event::create($validatedData);
 

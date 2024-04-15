@@ -18,7 +18,7 @@
                 <h3 class="font-semibold text-lg">{{ $event->name }}</h3>
                 <p><strong>Paikka:</strong> {{ $event->location }}</p>
                 <p><strong>Aloitus aika:</strong> {{ $event->start_time }}</p>
-                <p><strong>Kesto (Päivissä):</strong> {{ $event->duration_days }}</p>
+                <p><strong>Lopetus aika:</strong> {{ $event->end_time }}</p>
                 <p><strong>Kuvaus:</strong> {{ $event->description }}</p>
                 <div>
                     <a href="{{ route('events.register') }}" class="btn btn-primary">Ilmoittaudu</a>

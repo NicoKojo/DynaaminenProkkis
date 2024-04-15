@@ -54,7 +54,11 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'user-type' => ['required', 'string', 'in:scout,parent,attendee']
+            'user-type' => ['required', 'string', 'in:scout,parent,attendee'],
+            'country' => ['nullable', 'string', 'max:255'], //Tässä on lisätyt kentät
+            'scoutid' => ['nullable', 'string', 'max:255'],
+            'troop' => ['nullable', 'string', 'max:255'],
+            'circle' => ['nullable', 'string', 'max:255'],
         ]);
     
         $role = $request->input('user-type'); // Retrieve the selected role from the request
@@ -63,7 +67,11 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $role, // Assign the retrieved role to the 'role' field
+            'role' => $role,
+            'country' => $request->country,
+            'scoutid' => $request->scoutid,
+            'troop' => $request->troop,
+            'circle' => $request->circle,
         ]);
     
         event(new Registered($user));
