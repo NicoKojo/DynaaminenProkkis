@@ -57,6 +57,9 @@
 
     <input type="radio" id="attendee" name="user-type" value="attendee" {{ old('user-type') == 'attendee' ? 'checked' : '' }}>
     <label for="attendee" class="radio-label">Attendee</label>
+
+    <input type="radio" id="admin" name="user-type" value="admin" {{ old('user-type') == 'admin' ? 'checked' : '' }}>
+    <label for="admin" class="radio-label">Admin</label>
 </div>
 
 

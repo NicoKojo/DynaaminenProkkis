@@ -54,7 +54,7 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'user-type' => ['required', 'string', 'in:scout,parent,attendee'],
+            'user-type' => ['required', 'string', 'in:scout,parent,attendee,admin'],
             'country' => ['nullable', 'string', 'max:255'], //Tässä on lisätyt kentät
             'scoutid' => ['nullable', 'string', 'max:255'],
             'troop' => ['nullable', 'string', 'max:255'],

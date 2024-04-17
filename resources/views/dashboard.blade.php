@@ -23,6 +23,23 @@
     </div>
 
     </div>
+
+            <!-- Luo tapahtuma -painike vain adminille -->
+            @if(Auth::user()->role == 'admin')
+        <div class="py-12">
+            <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900">
+                        <form method="GET" action="{{ route('events.create') }}">
+                            <button type="submit">Luo uusi tapahtuma</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+
 <div class="py-12">
     <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
