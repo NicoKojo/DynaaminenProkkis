@@ -58,6 +58,12 @@ class EventController extends Controller
     return redirect()->route('events.index')->with('success', 'Ilmoittautuminen onnistui!');
 }
 
+public function destroy(Event $event) //Tapahtuman poisto
+{
+    $event->delete();
+    return redirect()->route('events.index')->with('success', 'Tapahtuma poistettu.');
+}
+
 
 
 

@@ -20,13 +20,20 @@
                 <p><strong>Aloitus aika:</strong> {{ $event->start_time }}</p>
                 <p><strong>Lopetus aika:</strong> {{ $event->end_time }}</p>
                 <p><strong>Kuvaus:</strong> {{ $event->description }}</p>
-                <div>
+
+                @if(Auth::user()->role == 'admin')
+                        <form action="{{ route('events.destroy', $event->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Poista tapahtuma</button>
+                        </form>
+                        @endif
+
+                    <div>
                     <a href="{{ route('events.register') }}" class="btn btn-primary">Ilmoittaudu</a>
                 </div>
             </div>
         @endforeach
-    </div>
-
-    <a href="{{ route('events.create') }}" class="btn btn-primary">Luo tapahtuma</a>
+</div>
 </x-app-layout>
 
