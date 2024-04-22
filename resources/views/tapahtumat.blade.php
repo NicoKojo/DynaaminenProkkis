@@ -30,7 +30,15 @@
                         @endif
 
                     <div>
+                    <div>
+                @if ($event->osallistujat == 1 && Auth::user()->role == 'scout')
                     <a href="{{ route('events.register') }}" class="btn btn-primary">Ilmoittaudu</a>
+                @elseif ($event->osallistujat == 2 && (Auth::user()->role == 'scout' || Auth::user()->role == 'parent'))
+                    <a href="{{ route('events.register') }}" class="btn btn-primary">Ilmoittaudu</a>
+                @elseif ($event->osallistujat == 3)
+                    <a href="{{ route('events.register') }}" class="btn btn-primary">Ilmoittaudu</a>
+                @endif
+            </div>
                 </div>
             </div>
         @endforeach

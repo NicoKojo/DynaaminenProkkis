@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 15.04.2024 klo 10:18
+-- Generation Time: 22.04.2024 klo 13:19
 -- Palvelimen versio: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,6 +38,8 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
+('partio@email.com|127.0.0.1', 'i:1;', 1713269851),
+('partio@email.com|127.0.0.1:timer', 'i:1713269851;', 1713269851),
 ('testi@gmail.fi|127.0.0.1', 'i:2;', 1712234400),
 ('testi@gmail.fi|127.0.0.1:timer', 'i:1712234400;', 1712234400);
 
@@ -67,16 +69,23 @@ CREATE TABLE `events` (
   `end_time` datetime NOT NULL,
   `description` text NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `recurrence` varchar(255) DEFAULT NULL,
+  `osallistujat` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Vedos taulusta `events`
 --
 
-INSERT INTO `events` (`id`, `name`, `location`, `start_time`, `end_time`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Sipulin kuorinta kurssi', 'LahtiCity', '2024-04-01 11:11:00', '0000-00-00 00:00:00', 'Täällä kuoritaan!', '2024-03-27 06:25:22', '2024-03-27 06:25:22'),
-(2, 'Sipulin kuorinnan alkeet', 'LahtiCity', '2024-04-01 11:32:00', '0000-00-00 00:00:00', 'NYT KUORITAAN!!!!', '2024-03-27 06:32:50', '2024-03-27 06:32:50');
+INSERT INTO `events` (`id`, `name`, `location`, `start_time`, `end_time`, `description`, `created_at`, `updated_at`, `recurrence`, `osallistujat`) VALUES
+(1, 'Sipulin kuorinta kurssi', 'LahtiCity', '2024-04-01 11:11:00', '0000-00-00 00:00:00', 'Täällä kuoritaan!', '2024-03-27 06:25:22', '2024-03-27 06:25:22', NULL, NULL),
+(2, 'Sipulin kuorinnan alkeet', 'LahtiCity', '2024-04-01 11:32:00', '0000-00-00 00:00:00', 'NYT KUORITAAN!!!!', '2024-03-27 06:32:50', '2024-03-27 06:32:50', NULL, NULL),
+(6, 'blööö', 'LahtiCity', '2024-04-16 19:00:00', '2024-04-30 15:00:00', 'HYÖÖÖÖGHHHÄÄÄÖÖGH!!!', '2024-04-16 09:01:06', '2024-04-16 09:01:06', NULL, NULL),
+(27, 'fvsf', 'sfv', '2024-04-22 14:06:00', '2024-04-28 14:06:00', 'sfdvsf', '2024-04-22 08:06:20', '2024-04-22 08:06:20', NULL, NULL),
+(28, 'sdfvsd', 'sdvs', '2024-04-24 14:07:00', '2024-04-28 14:07:00', 'sdvsd', '2024-04-22 08:07:33', '2024-04-22 08:07:33', NULL, 1),
+(29, 'test2', 'asdfv', '2024-04-24 14:14:00', '2024-04-26 14:14:00', 'sdfvas', '2024-04-22 08:14:23', '2024-04-22 08:14:23', NULL, 2),
+(30, 'test3', 'Lahti', '2024-04-23 14:14:00', '2024-04-26 14:14:00', 'skibidii', '2024-04-22 08:14:53', '2024-04-22 08:14:53', NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -153,7 +162,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2024_03_19_182144_create_personal_access_tokens_table', 3),
 (6, '2024_03_27_080433_create_events_table', 3),
 (7, '2024_04_04_111802_create_ilmo_table', 4),
-(8, '2024_04_04_131001_create_registrations_table', 5);
+(8, '2024_04_04_131001_create_registrations_table', 5),
+(10, '2024_04_22_050715_add_recurrence_to_events_table', 6),
+(11, '2024_04_22_110417_add_osallistujat_to_events_table', 7);
 
 -- --------------------------------------------------------
 
@@ -233,7 +244,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('72DvLPcgd7WeyCaLDEKEdRXPeepRRuS8mnc6Nc96', 35, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiRXQ2ZGpkZ09GU1UxQXd6aDhOT3RPMHF6djRaUHRDMm50WDRQOU90bCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC90YXBhaHR1bWF0Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MzU7fQ==', 1713168987);
+('MMUMUViCkcF6tZ8hOd928KTHhABninp9Yrax2QyG', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUnFzNDJnWE1mQklpNXJ2R0thZHZ0VTFEU3YzME9ocGtwdnE0VThqdyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fX0=', 1713784533);
 
 -- --------------------------------------------------------
 
@@ -256,6 +267,17 @@ CREATE TABLE `users` (
   `troop` varchar(255) DEFAULT NULL,
   `circle` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Vedos taulusta `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `role`, `country`, `scoutid`, `troop`, `circle`) VALUES
+(36, 'jjahas', 'no@nii.com', NULL, '$2y$12$qTgVuWwvq8g.8EHVPOsvpuL.qbhiCXgYfdylLk3ojyBsDqkM9MzDC', NULL, '2024-04-16 08:59:56', '2024-04-16 08:59:56', 'scout', 'dfghsfy', 'dyjdty', 'dtyjdty', 'tuyjdt'),
+(37, 'ItseSaatana', 'helvetti@perkele.com', NULL, '$2y$12$30KJfs.8i6AMAIbyCe/L7.paaT5/g3QhW2buDmAdbeA.qH9ddqRvq', NULL, '2024-04-16 09:21:49', '2024-04-16 09:21:49', 'scout', 'Helvetti', '666', 'Saatanan Valtakunta', 'Saatanalahden Eräjormat'),
+(38, 'ItseSaatana2', 'helvetti2@perkele.com', NULL, '$2y$12$hXcuir5urJDx4qSkCUDml.5Q1UpP/6s6Un3zbkF4UXTge5bV53Cnq', NULL, '2024-04-22 01:35:50', '2024-04-22 01:35:50', 'admin', NULL, NULL, NULL, NULL),
+(39, 'vanhempi', 'vanhempi@partio.com', NULL, '$2y$12$/avdWZRewOFEdpvjPD6tfO164ieRahp8dN7dMs6GdbjVwBaBrA40a', NULL, '2024-04-22 08:13:58', '2024-04-22 08:13:58', 'parent', NULL, NULL, NULL, NULL),
+(40, 'spurgu', 'spurgu@partio.com', NULL, '$2y$12$8e3Pm3X/4EfCozCzYbaDh.5JrXsP9y3d2L.RhSSxV43b1IWrFLtFy', NULL, '2024-04-22 08:15:21', '2024-04-22 08:15:21', 'attendee', NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -349,7 +371,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -367,7 +389,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -385,7 +407,7 @@ ALTER TABLE `registrations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -21,6 +21,7 @@ class EventController extends Controller
             'start_time' => 'required|date',
             'end_time' => 'required|date',
             'description' => 'required',
+            'osallistujat' => 'required|integer',
         ]);
 
        
@@ -63,9 +64,5 @@ public function destroy(Event $event) //Tapahtuman poisto
     $event->delete();
     return redirect()->route('events.index')->with('success', 'Tapahtuma poistettu.');
 }
-
-
-
-
 
 }
