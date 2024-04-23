@@ -12,7 +12,16 @@
                     Olet kirjautunut sisälle, tervetuloa {{ Auth::user()->name }}!
 
                     <form method="GET" action="{{ route('juhosivu') }}">
-                        <button type="submit">Go to Juho Sivu</button>
+                        <button type="submit" 
+                        style="padding: 10px 20px; 
+                        background-color: #007bff; 
+                        color: #fff; 
+                        border: none; 
+                        border-radius: 5px; 
+                        cursor: pointer; 
+                        font-size: 16px; 
+                        transition: background-color 0.3s ease;
+                        ">Go to Juho Sivu</button>
                     </form>
 
                 </div>
@@ -31,7 +40,15 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
                         <form method="GET" action="{{ route('events.create') }}">
-                            <button type="submit">Luo uusi tapahtuma</button>
+                            <button type="submit"  style="padding: 10px 20px; 
+                        background-color: #007bff; 
+                        color: #fff; 
+                        border: none; 
+                        border-radius: 5px; 
+                        cursor: pointer; 
+                        font-size: 16px; 
+                        transition: background-color 0.3s ease;
+                        ">Luo uusi tapahtuma</button>
                         </form>
                     </div>
                 </div>
@@ -48,7 +65,15 @@
                 {{ __('Tästä näät kaikki saatavilla olevat tapahtumat')}}
 
                         <form method="GET" action="{{ route('kalenteri') }}">
-                        <button type="submit">Kalenteri</button>
+                        <button type="submit" style="padding: 10px 20px; 
+                        background-color: #007bff; 
+                        color: #fff; 
+                        border: none; 
+                        border-radius: 5px; 
+                        cursor: pointer; 
+                        font-size: 16px; 
+                        transition: background-color 0.3s ease;
+                        ">Kalenteri</button>
                         </form>
             </div>
         </div>
@@ -63,7 +88,15 @@
                 {{ __(' Tällä sivulla on tietoa lippukunnista ja linkit heidän kotisivuille.')}}
 
                         <form method="GET" action="{{ route('lippukunta') }}">
-                        <button type="submit">Lippukunta</button>
+                        <button type="submit" style="padding: 10px 20px; 
+                        background-color: #007bff; 
+                        color: #fff; 
+                        border: none; 
+                        border-radius: 5px; 
+                        cursor: pointer; 
+                        font-size: 16px; 
+                        transition: background-color 0.3s ease;
+                        ">Lippukunta</button>
                         </form>
             </div>
         </div>
@@ -79,7 +112,16 @@
                 {{ __(' Tällä sivulla on tietoa tapahtumista, sekä ilmottautuminen..')}}
 
                         <form method="GET" action="{{ route('tapahtumat') }}">
-                        <button type="submit">Tapahtumat</button>
+                        <button type="submit"
+                        style="padding: 10px 20px; 
+                        background-color: #007bff; 
+                        color: #fff; 
+                        border: none; 
+                        border-radius: 5px; 
+                        cursor: pointer; 
+                        font-size: 16px; 
+                        transition: background-color 0.3s ease;
+                        ">Tapahtumat</button>
                         </form>
             </div>
         </div>
