@@ -39,7 +39,8 @@ class EventController extends Controller
 
     public function registerForm()
     {
-        return view('register');
+        $events = Event::all();
+        return view('register', ['events' => $events]);
     }
 
     public function registerSubmit(Request $request)
@@ -48,12 +49,14 @@ class EventController extends Controller
         'first_name' => 'required',
         'last_name' => 'required',
         'email' => 'required|email',
+        'event_id' => 'required|exists:events,id',
     ]);
 
     $registration = new Registration();
     $registration->first_name = $request->first_name;
     $registration->last_name = $request->last_name;
     $registration->email = $request->email;
+    $registration->event_id = $request->event_id;
     $registration->save();
 
     return redirect()->route('events.index')->with('success', 'Ilmoittautuminen onnistui!');

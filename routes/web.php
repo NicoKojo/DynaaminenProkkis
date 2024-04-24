@@ -37,9 +37,10 @@ Route::get('/tapahtumat', [EventController::class, 'index'])->name('tapahtumat')
 
 Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
 
-Route::get('/events/register', [App\Http\Controllers\EventController::class, 'registerForm'])->name('events.register');
+//Route::get('/events/register', [App\Http\Controllers\EventController::class, 'registerForm'])->name('events.register');
 Route::post('/events/register', [App\Http\Controllers\EventController::class, 'registerSubmit'])->name('events.register.submit');
 Route::get('/events', [App\Http\Controllers\EventController::class, 'index'])->name('events.index');
+Route::get('events/register', [EventController::class, 'registerForm'])->name('events.register');
 
 
 require __DIR__.'/auth.php';
