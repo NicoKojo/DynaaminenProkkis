@@ -59,6 +59,9 @@ class RegisteredUserController extends Controller
             'scoutid' => ['nullable', 'string', 'max:255'],
             'troop' => ['nullable', 'string', 'max:255'],
             'circle' => ['nullable', 'string', 'max:255'],
+            'child' => ['nullable', 'string', 'max:255'],
+            'age' => ['required', 'date'],
+
         ]);
     
         $role = $request->input('user-type'); // Retrieve the selected role from the request

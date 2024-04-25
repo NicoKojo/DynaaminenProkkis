@@ -24,7 +24,9 @@ class User extends Authenticatable
         'country',
         'scoutid',
         'troop', 
-        'circle',
+        'circle',   
+        'child',
+        'age',
     ];
 
     /**

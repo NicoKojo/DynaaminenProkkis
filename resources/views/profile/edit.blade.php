@@ -10,6 +10,9 @@
                 <div class="max-w-xl">
                     <h1>{{ Auth::user()->name }}</h1>
                     <p>Rooli: {{ Auth::user()->role }}</p>
+                        @if(Auth::user()->role == 'parent')
+                            <p> Huollettava: {{Auth::user()->child}} </p>
+                        @endif
                 </div>
             </div>
 
