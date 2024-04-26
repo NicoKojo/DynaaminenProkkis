@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Tämä on uusi sivu</title>
+        <title>Omat tiedot</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -34,13 +34,31 @@
                     </header>
 
                     <div class ="munteksti">
-                    Maailma palaa!!!
-                    Nyt kaikki tulee keskelle hienosti!
+                    <h1><b>Omat tiedot:</b><h1>
+                    <h1>Nimi: {{ Auth::user()->name }}</h1>
+                    <h1>Sähköposti: {{ Auth::user()->email }}</h1>
+                    <h1>Rooli: {{ Auth::user()->role }}</h1>
+                    @if (Auth::user()->role == 'parent')
+                        <p>Huollettavat: {{Auth::user()->child}} </p>
+                    @endif
+                    <br>
+                    
+                    <h1><b>Partio tiedot:</b><h1>
+                    <h1>Joukko: {{ Auth::user()->troop }}</h1>
+                    <h1>Piiri: {{ Auth::user()->circle }}</h1>
+                    <br>
+                    <h1><b>Tapahtumat:</b></h1>
+
+                    <!--
+                    @if ('')
+                    
+                    @endif -->>
                     </div>
 
+                    <!--
                     <footer class="py-16 text-center text-sm text-black dark:text-white/70">
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                    </footer>
+                    </footer> -->
                 </div>
             </div>
         </div>
