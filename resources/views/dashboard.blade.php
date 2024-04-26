@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                     Olet kirjautunut sisälle, tervetuloa {{ Auth::user()->name }}!
 
-                    <form method="GET" action="{{ route('juhosivu') }}">
+                    <form method="GET" action="{{ route('omasivu') }}">
                         <button type="submit" 
                         style="padding: 10px 20px; 
                         background-color: #007bff; 
@@ -21,7 +21,7 @@
                         cursor: pointer; 
                         font-size: 16px; 
                         transition: background-color 0.3s ease;
-                        ">Go to Juho Sivu</button>
+                        ">Omat tiedot</button>
                     </form>
 
                 </div>

@@ -24,7 +24,7 @@ Route::get('/partio', function () {
     return view('partio');
 })->middleware('role:scout');
 
-Route::view('/juhosivu', 'juhosivu')->name('juhosivu');
+Route::view('/omasivu', 'omasivu')->name('omasivu');
 Route::view('/kalenteri', 'kalenteri')->name('kalenteri');
 Route::view('/lippukunta', 'lippukunta')->name('lippukunta');
 Route::view('/tapahtumat', 'tapahtumat')->name('tapahtumat');
