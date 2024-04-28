@@ -39,27 +39,6 @@
             }
         }
     });
-
-    function toggleAdditionalFields2(role) {
-        const additionalFields2 = document.getElementById('additional-fields2');
-
-        if (role === 'parent') {
-            additionalFields2.style.display = 'block';
-        } else {
-            additionalFields2.style.display = 'none';
-        }
-    }
-
-    window.addEventListener('click', function(event) {
-        const parentRadio = document.getElementById('parent');
-        const additionalFields2 = document.getElementById('additional-fields2');
-
-        if (event.target !== parentRadio && !parentRadio.contains(event.target)) {
-            if (event.target !== additionalFields2 && !additionalFields2.contains(event.target) && event.target.type !== 'password') {
-                additionalFields2.style.display = 'none';
-            }
-        }
-    });
         </script>
 
 
@@ -73,7 +52,7 @@
     <label for="scout" class="radio-label">Scout</label>
     
 
-    <input type="radio" id="parent" name="user-type" value="parent" onclick="toggleAdditionalFields2('parent')" {{ old('user-type') == 'parent' ? 'checked' : '' }}>
+    <input type="radio" id="parent" name="user-type" value="parent" {{ old('user-type') == 'parent' ? 'checked' : '' }}>
     <label for="parent" class="radio-label">Parent</label>
 
     <input type="radio" id="attendee" name="user-type" value="attendee" {{ old('user-type') == 'attendee' ? 'checked' : '' }}>
@@ -86,34 +65,17 @@
 
     <!--Tässä on piilotettavat kentät-->
     <div id="additional-fields" style="display: none;"> 
-        
-        <input type="date" name="age" id="age" placeholder="Syntymäaika">
-        <label for="age" class="radio-label">Syntymäaika</label>
-        <br>
-        <input type="text" name="country" id="country" placeholder="Maa">
-        <br>
-        <input type="text" name="scoutid" id="scoutid" placeholder="Partio tunnus">
-        <br>
-        <input type="text" name="troop" id="troop" placeholder="Lippukunta">
-        <br>
-        <input type="text" name="circle" id="circle" placeholder="Piiri">
-    </div>
-
-    <div id="additional-fields2" style="display: none;"> 
       
-        <input type="text" name="child" id="child" placeholder="Huollettavan nimi">
+        <input type="text" name="country" id="country" placeholder="maa">
         <br>
-        <input type="text" name="scoutid" id="scoutid" placeholder="Partio tunnus">
+        <input type="text" name="scoutid" id="scoutid" placeholder="partio id">
         <br>
-        <input type="text" name="troop" id="troop" placeholder="Lippukunta">
+        <input type="text" name="troop" id="troop" placeholder="lippukunta">
         <br>
-        <input type="text" name="circle" id="circle" placeholder="Piiri">
-        <br>
-        <input type="text" name="country" id="country" placeholder="Maa">
+        <input type="text" name="circle" id="circle" placeholder="piiri">
         <br>
         <input type="date" name="age" id="age" placeholder="">
-        <label for="age" class="age-label">Huollettavan syntymäaika</label>
-        <br>
+        <label for="age" class="age-label">syntymäaika</label>
     </div>
 
 

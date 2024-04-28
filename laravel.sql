@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 25.04.2024 klo 11:58
+-- Generation Time: 28.04.2024 klo 10:27
 -- Palvelimen versio: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,18 +32,6 @@ CREATE TABLE `cache` (
   `value` mediumtext NOT NULL,
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Vedos taulusta `cache`
---
-
-INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('partio@email.com|127.0.0.1', 'i:1;', 1713269851),
-('partio@email.com|127.0.0.1:timer', 'i:1713269851;', 1713269851),
-('poju@partio.fi|127.0.0.1', 'i:1;', 1713968042),
-('poju@partio.fi|127.0.0.1:timer', 'i:1713968042;', 1713968042),
-('testi@gmail.fi|127.0.0.1', 'i:2;', 1712234400),
-('testi@gmail.fi|127.0.0.1:timer', 'i:1712234400;', 1712234400);
 
 -- --------------------------------------------------------
 
@@ -177,6 +165,25 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Rakenne taululle `parent_register`
+--
+
+CREATE TABLE `parent_register` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `pcname` varchar(255) NOT NULL,
+  `pcage` date NOT NULL,
+  `pccircle` varchar(255) NOT NULL,
+  `pctroop` varchar(255) NOT NULL,
+  `pccountry` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `pcscoutid` int(11) DEFAULT NULL,
+  `parentname` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Rakenne taululle `password_reset_tokens`
 --
 
@@ -257,7 +264,10 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('emdfH3F42cFRxJ4N1fvjJvChN7qvs1XXZ6BJ6qlZ', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiNEdkRzNBSkRNZFlZZHNqTWhXU3UwYWxBWVRJV3FHamN2ZHliNWloSiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fX0=', 1714038309);
+('21RZrxpjri4FHlrkjzFFuGiBDjk9LzT4vr1YvMwN', 68, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoibFFubkhTRUZHZ0xIR3owOVdMTE1WTThYbUEyNkxTUmE0T0dVRUtoZSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9kYXNoYm9hcmQiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo2ODt9', 1714292803),
+('6PtBQ0AiCkyG5U7LJRY2CbtB5YXKKmQrG9gfjEcD', 64, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVmo1UU1ZT2dLUlZWa3A3WmpsTHg5SmhwZENQTFFOVDJhdkVzejFOTyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9jaGlsZC9yZWdpc3RlciI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjY0O30=', 1714238207),
+('rCXCfz5UEIJpEQCINfZtIY2LqTdIti0XnlrQHWlg', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiYUN2NlBUaTFJWUNMSHhkRzY1NkhBNzNGUlhwRW1TS0FzY29ESEpPYiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9yZWdpc3RlciI7fX0=', 1714202479),
+('TOEIhPNGOIypFXnlMuRXq4O6GPx1BGszTG2XiCbh', 63, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoib1ZxbWhBVUFaV0R5MlowNzN6UWhpZXRqOTVxcVZQdVVUeVZ3ZVBnbSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9vbWFzaXZ1Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6NjM7fQ==', 1714202460);
 
 -- --------------------------------------------------------
 
@@ -288,13 +298,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `role`, `country`, `scoutid`, `troop`, `circle`, `child`, `age`) VALUES
-(36, 'jjahas', 'no@nii.com', NULL, '$2y$12$qTgVuWwvq8g.8EHVPOsvpuL.qbhiCXgYfdylLk3ojyBsDqkM9MzDC', NULL, '2024-04-16 08:59:56', '2024-04-16 08:59:56', 'scout', 'dfghsfy', 'dyjdty', 'dtyjdty', 'tuyjdt', '', NULL),
-(37, 'ItseSaatana', 'helvetti@perkele.com', NULL, '$2y$12$30KJfs.8i6AMAIbyCe/L7.paaT5/g3QhW2buDmAdbeA.qH9ddqRvq', NULL, '2024-04-16 09:21:49', '2024-04-16 09:21:49', 'scout', 'Helvetti', '666', 'Saatanan Valtakunta', 'Saatanalahden Eräjormat', '', NULL),
-(38, 'ItseSaatana2', 'helvetti2@perkele.com', NULL, '$2y$12$hXcuir5urJDx4qSkCUDml.5Q1UpP/6s6Un3zbkF4UXTge5bV53Cnq', NULL, '2024-04-22 01:35:50', '2024-04-22 01:35:50', 'admin', NULL, NULL, NULL, NULL, '', NULL),
-(39, 'vanhempi', 'vanhempi@partio.com', NULL, '$2y$12$/avdWZRewOFEdpvjPD6tfO164ieRahp8dN7dMs6GdbjVwBaBrA40a', NULL, '2024-04-22 08:13:58', '2024-04-22 08:13:58', 'parent', NULL, NULL, NULL, NULL, '', NULL),
-(40, 'spurgu', 'spurgu@partio.com', NULL, '$2y$12$8e3Pm3X/4EfCozCzYbaDh.5JrXsP9y3d2L.RhSSxV43b1IWrFLtFy', NULL, '2024-04-22 08:15:21', '2024-04-22 08:15:21', 'attendee', NULL, NULL, NULL, NULL, '', NULL),
-(41, 'esimerkki', 'partio@partio.fi', NULL, '$2y$12$hACRy6vSojMAZkXbwVltWeFQXneftrG8Phw3M4zSz0U9ZDho8WYbq', NULL, '2024-04-24 11:13:38', '2024-04-24 11:13:38', 'attendee', NULL, NULL, NULL, NULL, '', NULL),
-(44, 'HannaHuoltaja', 'hanna@partio.com', NULL, '$2y$12$CaFFsp0CmmD0ApZKjcmjFuoY/Cvd5tpBGOnqgQhwGOwLDPMYML6Su', NULL, '2024-04-25 06:20:47', '2024-04-25 06:20:47', 'parent', 'Suami', '123456', 'Tulikivet', 'Saatananlahti', 'PikkuTopi', '2018-06-05');
+(68, 'tui', 'tui@lui.com', NULL, '$2y$12$X.ngYsUXyZtQTlWKUHvP0.pwQUTaqVjMhnQNpYsBGMK5J9adM1zOm', NULL, '2024-04-28 05:26:43', '2024-04-28 05:26:43', 'scout', 'sretyjh', '4357', 'sgdh', 'sdh', NULL, '2024-04-02');
 
 --
 -- Indexes for dumped tables
@@ -342,6 +346,12 @@ ALTER TABLE `job_batches`
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `parent_register`
+--
+ALTER TABLE `parent_register`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -408,6 +418,12 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
+-- AUTO_INCREMENT for table `parent_register`
+--
+ALTER TABLE `parent_register`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
@@ -423,7 +439,7 @@ ALTER TABLE `registrations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
