@@ -13,24 +13,31 @@
     <br>
 
     <div class="mt-4">
+
         @foreach ($events as $event)
-            <div class="border rounded p-4 mb-4">
-                <h3 class="font-semibold text-lg">{{ $event->name }}</h3>
-                <p><strong>Paikka:</strong> {{ $event->location }}</p>
-                <p><strong>Aloitus aika:</strong> {{ $event->start_time }}</p>
-                <p><strong>Lopetus aika:</strong> {{ $event->end_time }}</p>
-                <p><strong>Kuvaus:</strong> {{ $event->description }}</p>
+    @php
+        $eventStart = \Carbon\Carbon::parse($event->start_time);
+        $currentTime = \Carbon\Carbon::now();
+        $hoursUntilStart = $currentTime->diffInHours($eventStart, false);
+    @endphp
 
-                @if(Auth::user()->role == 'admin')
-                        <form action="{{ route('events.destroy', $event->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Poista tapahtuma</button>
-                        </form>
-                        @endif
+    @if ($hoursUntilStart > 24)  <!-- Näytetään vain tapahtumat, jotka alkavat yli 24 tunnin kuluttua -->
+        <div class="border rounded p-4 mb-4">
+            <h3 class="font-semibold text-lg">{{ $event->name }}</h3>
+            <p><strong>Paikka:</strong> {{ $event->location }}</p>
+            <p><strong>Aloitus aika:</strong> {{ $event->start_time }}</p>
+            <p><strong>Lopetus aika:</strong> {{ $event->end_time }}</p>
+            <p><strong>Kuvaus:</strong> {{ $event->description }}</p>
 
-                    <div>
-                    <div>
+            @if(Auth::user()->role == 'admin')
+                <form action="{{ route('events.destroy', $event->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Poista tapahtuma</button>
+                </form>
+            @endif
+
+            <div>
                 @if ($event->osallistujat == 1 && Auth::user()->role == 'scout')
                     <a href="{{ route('events.register') }}" class="btn btn-primary">Ilmoittaudu</a>
                 @elseif ($event->osallistujat == 2 && (Auth::user()->role == 'scout' || Auth::user()->role == 'parent'))
@@ -39,9 +46,10 @@
                     <a href="{{ route('events.register') }}" class="btn btn-primary">Ilmoittaudu</a>
                 @endif
             </div>
-                </div>
-            </div>
-        @endforeach
+        </div>
+    @endif
+@endforeach
+
 </div>
 </x-app-layout>
 
