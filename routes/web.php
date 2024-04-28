@@ -4,6 +4,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\FormController;
+use App\Http\Controllers\ParentController;
 
 
 Route::get('/', function () {
@@ -44,6 +45,13 @@ Route::get('events/register', [EventController::class, 'registerForm'])->name('e
 
 // Hakee tapahtumat omasivulle...
 Route::get('/omasivu', [EventController::class, 'retrieveList'])->name('omasivu');
+
+Route::post('/register/parent', [ParentController::class, 'register'])->name('register.parent');
+// routes/web.php
+
+Route::get('/parent_register', function () {
+    return view('parent_register');
+})->name('parent_register');
 
 
 require __DIR__.'/auth.php';

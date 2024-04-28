@@ -12,6 +12,9 @@
                     <p>Rooli: {{ Auth::user()->role }}</p>
                         @if(Auth::user()->role == 'parent')
                             <p> Huollettava: {{Auth::user()->child}} </p>
+
+<a href="{{ route('parent_register') }}" class="btn btn-primary">Lisää mukula</a>
+
                         @endif
                 </div>
             </div>
