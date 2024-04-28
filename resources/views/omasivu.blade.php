@@ -34,6 +34,7 @@
                     </header>
 
                     <div class ="munteksti">
+                        
                     <h1><b>Omat tiedot:</b><h1>
                     <h1>Nimi: {{ Auth::user()->name }}</h1>
                     <h1>Sähköposti: {{ Auth::user()->email }}</h1>
@@ -42,17 +43,47 @@
                         <p>Huollettavat: {{Auth::user()->child}} </p>
                     @endif
                     <br>
-                    
-                    <h1><b>Partio tiedot:</b><h1>
-                    <h1>Joukko: {{ Auth::user()->troop }}</h1>
-                    <h1>Piiri: {{ Auth::user()->circle }}</h1>
+
+                    @if(Auth::user()->role == 'scout')
+                        <h1><b>Partio tiedot:</b><h1>
+                        <h1>Tunnus: {{ Auth::user()->scoutid }}</h1>
+                        <h1>Joukko: {{ Auth::user()->troop }}</h1>
+                        <h1>Piiri: {{ Auth::user()->circle }}</h1>
+                    @elseif(Auth::user()->role == 'parent')
+                        <h1><b>Huollettavan tiedot:</b><h1>
+                        <h1>Tunnus: {{ Auth::user()->scoutid }}</h1>
+                        <h1>Joukko: {{ Auth::user()->troop }}</h1>
+                        <h1>Piiri: {{ Auth::user()->circle }}</h1>
+                    @endif
+
                     <br>
                     <h1><b>Tapahtumat:</b></h1>
 
-                    <!--
-                    @if ('')
-                    
-                    @endif -->
+                    <br><center>
+
+                    <table border="1" width="50%">
+                        <tr>
+                            <th>Nimi:</th>
+                            <th>Paikka:</th>
+                            <th>Alkaa:</th>
+                            <th>Päättyy:</th>
+                            <th>Kuvaus:</th>
+                            <th>Ilmoittautuminen:</th>
+                        </tr>
+
+                        @foreach ($events as $event)
+
+                        <tr>
+                            <td>{{ $event->name}}</td>
+                            <td>{{ $event->location}}</td>
+                            <td>{{ $event->start_time}}</td>
+                            <td>{{ $event->end_time}}</td>
+                            <td>{{ $event->description}}</td>
+                            <td>Poista</td>
+                        </tr>
+
+                        @endforeach
+                    </table>
                     </div>
 
                     <!--

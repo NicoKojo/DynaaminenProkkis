@@ -42,5 +42,8 @@ Route::post('/events/register', [App\Http\Controllers\EventController::class, 'r
 Route::get('/events', [App\Http\Controllers\EventController::class, 'index'])->name('events.index');
 Route::get('events/register', [EventController::class, 'registerForm'])->name('events.register');
 
+// Hakee tapahtumat omasivulle...
+Route::get('/omasivu', [EventController::class, 'retrieveList'])->name('omasivu');
+
 
 require __DIR__.'/auth.php';

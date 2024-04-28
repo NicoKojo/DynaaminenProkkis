@@ -68,4 +68,11 @@ public function destroy(Event $event) //Tapahtuman poisto
     return redirect()->route('events.index')->with('success', 'Tapahtuma poistettu.');
 }
 
+//Tapahtumalistauksen tavaraa.
+public function retrieveList()
+    {
+        $events = Event::all();
+        return view('omasivu', ['events' => $events]);
+    }
+
 }
