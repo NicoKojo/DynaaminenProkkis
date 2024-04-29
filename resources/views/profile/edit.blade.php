@@ -13,7 +13,16 @@
                         @if(Auth::user()->role == 'parent')
                             <p> Huollettava: {{Auth::user()->child}} </p>
 
-<a href="{{ route('parent_register') }}" class="btn btn-primary">Lisää mukula</a>
+<a href="{{ route('parent_register') }}" class="btn btn-primary"
+style="padding: 4px 2px; 
+                        background-color: #007bff; 
+                        color: #fff; 
+                        border: none; 
+                        border-radius: 5px; 
+                        cursor: pointer; 
+                        font-size: 16px; 
+                        transition: background-color 0.3s ease;
+                        ">Lisää mukula</a>
 
                         @endif
                 </div>
