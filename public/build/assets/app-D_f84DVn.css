@@ -421,4 +421,75 @@ body{margin:0;line-height:inherit}
                                              .dark\:focus-visible\:ring-white:focus-visible{--tw-ring-opacity: 1;--tw-ring-color: rgb(255 255 255 / var(--tw-ring-opacity))}
                                              .dark\:active\:bg-gray-700:active{--tw-bg-opacity: 1;background-color:rgb(55 65 81 / var(--tw-bg-opacity))}
                                              .dark\:active\:text-gray-300:active{--tw-text-opacity: 1;color:rgb(209 213 219 / var(--tw-text-opacity))}
-                                        } 
+} 
+
+
+
+
+
+
+.linkki1
+{
+   
+    border-radius: 5px;
+    width: 200px;    
+    height: 40px;
+    border-color: black;
+    border-width: 5px;
+    position:relative; 
+    left: 10px;
+    text-align: center;
+    line-height: 40px; 
+    transition: all 0.3s ease; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+
+   
+    
+}
+
+.linkki1:hover {
+    background-color: lightgray; /* Uusi taustaväri, kun hover */
+    border-color: gray; /* Uusi reunaväri, kun hover */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); /* Lisää varjo */
+    transform: translate(800px, 90px); /* Siirrä 20 pikseliä oikealle ja 20 pikseliä alaspäin */
+}
+
+.linkki
+{
+   
+    border-radius: 5px;
+    width: 200px;    
+    height: 40px;
+    border-color: black;
+    border-width: 5px;
+    position:relative; 
+    left: 10px;
+    text-align: center;
+    line-height: 40px; 
+    transition: all 0.3s ease; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+
+   
+    
+}
+
+.linkki:hover 
+{
+    background-color: rgb(110, 169, 225); 
+    border-color: gray;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); 
+    width: 220px; 
+    height: 50px; 
+    text-align: center;
+    line-height: 50px; 
+    transition: all 0.3s ease; 
+    
+   
+    
+}
+
+                    
