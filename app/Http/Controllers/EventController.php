@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\Registration;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\JsonResponse;
 
 class EventController extends Controller
 {
@@ -43,23 +45,28 @@ class EventController extends Controller
         return view('register', ['events' => $events]);
     }
 
+    public function showEventPage()
+{
+    $events = Event::all(); // Hae kaikki tapahtumat
+    return view('event', ['events' => $events]);
+}
+
     public function registerSubmit(Request $request)
 {
-    $request->validate([
-        'first_name' => 'required',
-        'last_name' => 'required',
-        'email' => 'required|email',
-        'event_id' => 'required|exists:events,id',
-    ]);
+// Hae kirjautunut käyttäjä
+$user = Auth::user();
 
-    $registration = new Registration();
-    $registration->first_name = $request->first_name;
-    $registration->last_name = $request->last_name;
-    $registration->email = $request->email;
-    $registration->event_id = $request->event_id;
-    $registration->save();
+// Hae valittu event_id lomakkeesta
+$eventId = $request->input('event_id');
 
-    return redirect()->route('events.index')->with('success', 'Ilmoittautuminen onnistui!');
+// Luo uusi Registration
+$registration = new Registration();
+$registration->user_id = $user->id;
+$registration->event_id = $eventId;
+$registration->save();
+
+// Lähetä vahvistusviesti (voisit ohjata käyttäjän uudelleen ja lisätä sessiovahvistuksen)
+return redirect()->route('events.index')->with('success', 'Ilmoittautumisesi on tallennettu onnistuneesti!');
 }
 
 public function destroy(Event $event) //Tapahtuman poisto

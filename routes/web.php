@@ -42,6 +42,7 @@ Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('eve
 Route::post('/events/register', [App\Http\Controllers\EventController::class, 'registerSubmit'])->name('events.register.submit');
 Route::get('/events', [App\Http\Controllers\EventController::class, 'index'])->name('events.index');
 Route::get('events/register', [EventController::class, 'registerForm'])->name('events.register');
+Route::post('/events/register', [EventController::class, 'registerSubmit'])->name('events.register.submit');
 
 // Hakee tapahtumat omasivulle...
 Route::get('/omasivu', [EventController::class, 'retrieveList'])->name('omasivu');

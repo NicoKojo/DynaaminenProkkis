@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 28.04.2024 klo 10:27
+-- Generation Time: 29.04.2024 klo 13:57
 -- Palvelimen versio: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -75,7 +75,9 @@ INSERT INTO `events` (`id`, `name`, `location`, `start_time`, `end_time`, `descr
 (27, 'fvsf', 'sfv', '2024-04-22 14:06:00', '2024-04-28 14:06:00', 'sfdvsf', '2024-04-22 08:06:20', '2024-04-22 08:06:20', NULL, NULL),
 (28, 'sdfvsd', 'sdvs', '2024-04-24 14:07:00', '2024-04-28 14:07:00', 'sdvsd', '2024-04-22 08:07:33', '2024-04-22 08:07:33', NULL, 1),
 (29, 'test2', 'asdfv', '2024-04-24 14:14:00', '2024-04-26 14:14:00', 'sdfvas', '2024-04-22 08:14:23', '2024-04-22 08:14:23', NULL, 2),
-(30, 'test3', 'Lahti', '2024-04-23 14:14:00', '2024-04-26 14:14:00', 'skibidii', '2024-04-22 08:14:53', '2024-04-22 08:14:53', NULL, 3);
+(30, 'test3', 'Lahti', '2024-04-23 14:14:00', '2024-04-26 14:14:00', 'skibidii', '2024-04-22 08:14:53', '2024-04-22 08:14:53', NULL, 3),
+(33, 'Testi1', 'Heinola', '2024-05-12 12:00:00', '2024-05-13 15:00:00', 'Tapahtuma vain partiolaisille.', '2024-04-28 17:02:23', '2024-04-28 17:02:23', NULL, 1),
+(34, 'Testi2', 'Lahti', '2024-05-31 10:00:00', '2024-05-31 19:00:00', 'Kaikille avoin tapahtuma.', '2024-04-28 17:03:11', '2024-04-28 17:03:11', NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -220,29 +222,30 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `registrations` (
   `event_id` bigint(20) UNSIGNED NOT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `email` varchar(255) NOT NULL,
-  `id` bigint(20) UNSIGNED NOT NULL
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Vedos taulusta `registrations`
 --
 
-INSERT INTO `registrations` (`event_id`, `first_name`, `last_name`, `created_at`, `updated_at`, `email`, `id`) VALUES
-(0, 'bobbi', 'brown', '2024-04-04 10:40:38', '2024-04-04 10:40:38', '', 2),
-(0, 'testi', 'testi', '2024-04-04 10:13:07', '2024-04-04 10:13:07', '', 3),
-(0, 'testi', 'testi', '2024-04-04 10:12:30', '2024-04-04 10:12:30', '', 4),
-(0, 'testi', 'testi', '2024-04-04 10:17:12', '2024-04-04 10:17:12', '', 5),
-(0, 'uusi', 'testi', '2024-04-04 10:19:51', '2024-04-04 10:19:51', '', 6),
-(0, 'testi', 'testi', '2024-04-04 10:26:19', '2024-04-04 10:26:19', '', 7),
-(30, 'Esi', 'Merkki', '2024-04-24 11:53:44', '2024-04-24 11:53:44', 'partio@partio.fi', 8),
-(29, 'Esi', 'Merkki', '2024-04-24 11:54:27', '2024-04-24 11:54:27', 'partio@partio.fi', 9),
-(30, 'Emilia', 'Vainio', '2024-04-24 11:58:48', '2024-04-24 11:58:48', 'emppu@email.fi', 10),
-(30, 'oiegjswetio', 'seoijlf', '2024-04-24 11:59:55', '2024-04-24 11:59:55', 'spoe@email.fi', 11);
+INSERT INTO `registrations` (`event_id`, `created_at`, `updated_at`, `user_id`) VALUES
+(0, '2024-04-04 10:40:38', '2024-04-04 10:40:38', NULL),
+(0, '2024-04-04 10:13:07', '2024-04-04 10:13:07', NULL),
+(0, '2024-04-04 10:12:30', '2024-04-04 10:12:30', NULL),
+(0, '2024-04-04 10:17:12', '2024-04-04 10:17:12', NULL),
+(0, '2024-04-04 10:19:51', '2024-04-04 10:19:51', NULL),
+(0, '2024-04-04 10:26:19', '2024-04-04 10:26:19', NULL),
+(30, '2024-04-24 11:53:44', '2024-04-24 11:53:44', NULL),
+(29, '2024-04-24 11:54:27', '2024-04-24 11:54:27', NULL),
+(30, '2024-04-24 11:58:48', '2024-04-24 11:58:48', NULL),
+(30, '2024-04-24 11:59:55', '2024-04-24 11:59:55', NULL),
+(33, '2024-04-29 07:26:20', '2024-04-29 07:26:20', 71),
+(27, '2024-04-29 07:27:05', '2024-04-29 07:27:05', 69),
+(34, '2024-04-29 07:54:18', '2024-04-29 07:54:18', 70),
+(1, '2024-04-29 08:55:51', '2024-04-29 08:55:51', 70);
 
 -- --------------------------------------------------------
 
@@ -264,10 +267,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('21RZrxpjri4FHlrkjzFFuGiBDjk9LzT4vr1YvMwN', 68, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoibFFubkhTRUZHZ0xIR3owOVdMTE1WTThYbUEyNkxTUmE0T0dVRUtoZSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9kYXNoYm9hcmQiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo2ODt9', 1714292803),
-('6PtBQ0AiCkyG5U7LJRY2CbtB5YXKKmQrG9gfjEcD', 64, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVmo1UU1ZT2dLUlZWa3A3WmpsTHg5SmhwZENQTFFOVDJhdkVzejFOTyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9jaGlsZC9yZWdpc3RlciI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjY0O30=', 1714238207),
-('rCXCfz5UEIJpEQCINfZtIY2LqTdIti0XnlrQHWlg', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiYUN2NlBUaTFJWUNMSHhkRzY1NkhBNzNGUlhwRW1TS0FzY29ESEpPYiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9yZWdpc3RlciI7fX0=', 1714202479),
-('TOEIhPNGOIypFXnlMuRXq4O6GPx1BGszTG2XiCbh', 63, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoib1ZxbWhBVUFaV0R5MlowNzN6UWhpZXRqOTVxcVZQdVVUeVZ3ZVBnbSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9vbWFzaXZ1Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6NjM7fQ==', 1714202460);
+('k4yRDnzLm743PCFJGFbisAkNMIU6sPkV3Y45uR1v', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoibXNFNzg3MEZnbjhWWFRSV0dwRUdQRFlqazdjOU9ra25nUHlUWXZqUyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9yZWdpc3RlciI7fX0=', 1714391795),
+('N0i66ZzUqj13YtPDYhzRIo7wQAQZG4jVMerUOi3e', 70, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVWxkcmdrcTdjdXRGUlZjeXpNdGxOdXdKYjBaR29iZHVpSnh0czdMVSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC90YXBhaHR1bWF0Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6NzA7fQ==', 1714340921);
 
 -- --------------------------------------------------------
 
@@ -298,7 +299,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `role`, `country`, `scoutid`, `troop`, `circle`, `child`, `age`) VALUES
-(68, 'tui', 'tui@lui.com', NULL, '$2y$12$X.ngYsUXyZtQTlWKUHvP0.pwQUTaqVjMhnQNpYsBGMK5J9adM1zOm', NULL, '2024-04-28 05:26:43', '2024-04-28 05:26:43', 'scout', 'sretyjh', '4357', 'sgdh', 'sdh', NULL, '2024-04-02');
+(68, 'tui', 'tui@lui.com', NULL, '$2y$12$X.ngYsUXyZtQTlWKUHvP0.pwQUTaqVjMhnQNpYsBGMK5J9adM1zOm', NULL, '2024-04-28 05:26:43', '2024-04-28 05:26:43', 'scout', 'sretyjh', '4357', 'sgdh', 'sdh', NULL, '2024-04-02'),
+(69, 'testi', 'testi@testi.fi', NULL, '$2y$12$pUXSgxt7aIzNU3W9HGYy5uT40nTdYAlo/utsPTtZAEMgrAPz3z.F6', NULL, '2024-04-28 16:40:57', '2024-04-28 16:40:57', 'attendee', NULL, NULL, NULL, NULL, NULL, NULL),
+(70, 'Admin', 'admin@admin.fi', NULL, '$2y$12$SrqzykPHAk2LgF7DhJNUXOVZXBNDywD19YtLs07ajLKZyIk9UePMm', NULL, '2024-04-28 16:56:17', '2024-04-28 16:56:17', 'admin', NULL, NULL, NULL, NULL, NULL, NULL),
+(71, 'Tyyppi', 'tyyppi@email.com', NULL, '$2y$12$sbBv0usGHvPMYnOOBf4er.BstW1exnsfIokgpS.49OqrtoiTds8zy', NULL, '2024-04-29 07:22:54', '2024-04-29 07:22:54', 'attendee', NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -372,7 +376,7 @@ ALTER TABLE `personal_access_tokens`
 -- Indexes for table `registrations`
 --
 ALTER TABLE `registrations`
-  ADD PRIMARY KEY (`id`);
+  ADD KEY `fk_user_id` (`user_id`);
 
 --
 -- Indexes for table `sessions`
@@ -397,7 +401,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -430,16 +434,20 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `registrations`
---
-ALTER TABLE `registrations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+
+--
+-- Rajoitteet vedostauluille
+--
+
+--
+-- Rajoitteet taululle `registrations`
+--
+ALTER TABLE `registrations`
+  ADD CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
