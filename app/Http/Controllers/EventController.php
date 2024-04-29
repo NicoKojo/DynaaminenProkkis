@@ -86,4 +86,21 @@ public function eventList()
         return view('omasivu', compact('events'));
     }
 
+ public function unregister(Request $request, Event $event)
+    {   
+        $user = Auth::user();
+
+        // Etsii ilmoittautumiseen liittyvän käyttäjän ja tapahtuman.
+        $registration = Registration::where('event_id', $event->id)
+            ->where('user_id', $user->id)
+            ->first();
+
+        if ($registration) {
+            // Poistaa ilmoittautumisen.
+            $registration->delete();
+        }
+
+        return redirect()->back()->with('Onnistui', 'Olet perunut osallistumise tapahtumaan.');
+    }
+
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 29.04.2024 klo 13:57
+-- Generation Time: 29.04.2024 klo 21:25
 -- Palvelimen versio: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -77,7 +77,9 @@ INSERT INTO `events` (`id`, `name`, `location`, `start_time`, `end_time`, `descr
 (29, 'test2', 'asdfv', '2024-04-24 14:14:00', '2024-04-26 14:14:00', 'sdfvas', '2024-04-22 08:14:23', '2024-04-22 08:14:23', NULL, 2),
 (30, 'test3', 'Lahti', '2024-04-23 14:14:00', '2024-04-26 14:14:00', 'skibidii', '2024-04-22 08:14:53', '2024-04-22 08:14:53', NULL, 3),
 (33, 'Testi1', 'Heinola', '2024-05-12 12:00:00', '2024-05-13 15:00:00', 'Tapahtuma vain partiolaisille.', '2024-04-28 17:02:23', '2024-04-28 17:02:23', NULL, 1),
-(34, 'Testi2', 'Lahti', '2024-05-31 10:00:00', '2024-05-31 19:00:00', 'Kaikille avoin tapahtuma.', '2024-04-28 17:03:11', '2024-04-28 17:03:11', NULL, 3);
+(34, 'Testi2', 'Lahti', '2024-05-31 10:00:00', '2024-05-31 19:00:00', 'Kaikille avoin tapahtuma.', '2024-04-28 17:03:11', '2024-04-28 17:03:11', NULL, 3),
+(35, 'Jännä juttu', 'Jännittävää', '2024-05-03 11:00:00', '2024-05-05 11:00:00', 'Nyt on jännää.', '2024-04-29 09:10:24', '2024-04-29 09:10:24', NULL, 3),
+(36, 'Jännä tapahtuma', 'Jossain', '2026-06-11 11:00:00', '2024-07-11 11:00:00', 'Testataan', '2024-04-29 09:12:48', '2024-04-29 09:12:48', NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -183,6 +185,13 @@ CREATE TABLE `parent_register` (
   `parentname` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Vedos taulusta `parent_register`
+--
+
+INSERT INTO `parent_register` (`id`, `pcname`, `pcage`, `pccircle`, `pctroop`, `pccountry`, `created_at`, `updated_at`, `pcscoutid`, `parentname`) VALUES
+(1, 'Lapsi Partiolainen', '2015-01-11', 'Joku', 'Tunarit', 'Suomi', '2024-04-29 09:15:56', '2024-04-29 09:15:56', 11111, 'Parentti Partiolainen');
+
 -- --------------------------------------------------------
 
 --
@@ -224,28 +233,32 @@ CREATE TABLE `registrations` (
   `event_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `user_id` bigint(20) UNSIGNED DEFAULT NULL
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `id` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Vedos taulusta `registrations`
 --
 
-INSERT INTO `registrations` (`event_id`, `created_at`, `updated_at`, `user_id`) VALUES
-(0, '2024-04-04 10:40:38', '2024-04-04 10:40:38', NULL),
-(0, '2024-04-04 10:13:07', '2024-04-04 10:13:07', NULL),
-(0, '2024-04-04 10:12:30', '2024-04-04 10:12:30', NULL),
-(0, '2024-04-04 10:17:12', '2024-04-04 10:17:12', NULL),
-(0, '2024-04-04 10:19:51', '2024-04-04 10:19:51', NULL),
-(0, '2024-04-04 10:26:19', '2024-04-04 10:26:19', NULL),
-(30, '2024-04-24 11:53:44', '2024-04-24 11:53:44', NULL),
-(29, '2024-04-24 11:54:27', '2024-04-24 11:54:27', NULL),
-(30, '2024-04-24 11:58:48', '2024-04-24 11:58:48', NULL),
-(30, '2024-04-24 11:59:55', '2024-04-24 11:59:55', NULL),
-(33, '2024-04-29 07:26:20', '2024-04-29 07:26:20', 71),
-(27, '2024-04-29 07:27:05', '2024-04-29 07:27:05', 69),
-(34, '2024-04-29 07:54:18', '2024-04-29 07:54:18', 70),
-(1, '2024-04-29 08:55:51', '2024-04-29 08:55:51', 70);
+INSERT INTO `registrations` (`event_id`, `created_at`, `updated_at`, `user_id`, `id`) VALUES
+(0, '2024-04-04 10:40:38', '2024-04-04 10:40:38', NULL, 1),
+(0, '2024-04-04 10:13:07', '2024-04-04 10:13:07', NULL, 2),
+(0, '2024-04-04 10:12:30', '2024-04-04 10:12:30', NULL, 3),
+(0, '2024-04-04 10:17:12', '2024-04-04 10:17:12', NULL, 4),
+(0, '2024-04-04 10:19:51', '2024-04-04 10:19:51', NULL, 5),
+(0, '2024-04-04 10:26:19', '2024-04-04 10:26:19', NULL, 6),
+(30, '2024-04-24 11:53:44', '2024-04-24 11:53:44', NULL, 7),
+(29, '2024-04-24 11:54:27', '2024-04-24 11:54:27', NULL, 8),
+(30, '2024-04-24 11:58:48', '2024-04-24 11:58:48', NULL, 9),
+(30, '2024-04-24 11:59:55', '2024-04-24 11:59:55', NULL, 10),
+(33, '2024-04-29 07:26:20', '2024-04-29 07:26:20', 71, 11),
+(27, '2024-04-29 07:27:05', '2024-04-29 07:27:05', 69, 12),
+(34, '2024-04-29 07:54:18', '2024-04-29 07:54:18', 70, 13),
+(1, '2024-04-29 08:55:51', '2024-04-29 08:55:51', 70, 14),
+(34, '2024-04-29 09:10:37', '2024-04-29 09:10:37', 72, 15),
+(35, '2024-04-29 09:10:47', '2024-04-29 09:10:47', 72, 16),
+(36, '2024-04-29 09:13:19', '2024-04-29 09:13:19', 72, 17);
 
 -- --------------------------------------------------------
 
@@ -267,8 +280,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('k4yRDnzLm743PCFJGFbisAkNMIU6sPkV3Y45uR1v', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoibXNFNzg3MEZnbjhWWFRSV0dwRUdQRFlqazdjOU9ra25nUHlUWXZqUyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9yZWdpc3RlciI7fX0=', 1714391795),
-('N0i66ZzUqj13YtPDYhzRIo7wQAQZG4jVMerUOi3e', 70, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVWxkcmdrcTdjdXRGUlZjeXpNdGxOdXdKYjBaR29iZHVpSnh0czdMVSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC90YXBhaHR1bWF0Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6NzA7fQ==', 1714340921);
+('vpW8RWbVSdG5AVSJ1tj0vo04kLaRWD08ebIsAPog', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTW9tZmNlTXlSWGhVbXR5dTVBN1BJblMzMm5jUHZScXZCU3hJemxBbCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fX0=', 1714418505);
 
 -- --------------------------------------------------------
 
@@ -302,7 +314,9 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (68, 'tui', 'tui@lui.com', NULL, '$2y$12$X.ngYsUXyZtQTlWKUHvP0.pwQUTaqVjMhnQNpYsBGMK5J9adM1zOm', NULL, '2024-04-28 05:26:43', '2024-04-28 05:26:43', 'scout', 'sretyjh', '4357', 'sgdh', 'sdh', NULL, '2024-04-02'),
 (69, 'testi', 'testi@testi.fi', NULL, '$2y$12$pUXSgxt7aIzNU3W9HGYy5uT40nTdYAlo/utsPTtZAEMgrAPz3z.F6', NULL, '2024-04-28 16:40:57', '2024-04-28 16:40:57', 'attendee', NULL, NULL, NULL, NULL, NULL, NULL),
 (70, 'Admin', 'admin@admin.fi', NULL, '$2y$12$SrqzykPHAk2LgF7DhJNUXOVZXBNDywD19YtLs07ajLKZyIk9UePMm', NULL, '2024-04-28 16:56:17', '2024-04-28 16:56:17', 'admin', NULL, NULL, NULL, NULL, NULL, NULL),
-(71, 'Tyyppi', 'tyyppi@email.com', NULL, '$2y$12$sbBv0usGHvPMYnOOBf4er.BstW1exnsfIokgpS.49OqrtoiTds8zy', NULL, '2024-04-29 07:22:54', '2024-04-29 07:22:54', 'attendee', NULL, NULL, NULL, NULL, NULL, NULL);
+(71, 'Tyyppi', 'tyyppi@email.com', NULL, '$2y$12$sbBv0usGHvPMYnOOBf4er.BstW1exnsfIokgpS.49OqrtoiTds8zy', NULL, '2024-04-29 07:22:54', '2024-04-29 07:22:54', 'attendee', NULL, NULL, NULL, NULL, NULL, NULL),
+(72, 'admin admin', 'admin@admin.com', NULL, '$2y$12$Oe3pvaiPg.7H78.V2mmS1.t.qGbPY8Cjh1Kxxbwh7ceGRipoCcE/e', NULL, '2024-04-29 09:06:03', '2024-04-29 09:06:03', 'admin', NULL, NULL, NULL, NULL, NULL, NULL),
+(73, 'Parentti Partiolainen', 'parentti@email.fi', NULL, '$2y$12$nO6p7oO8kT2I85bmE6MopOSHEWNxKrSMTrFxvJHf5JT5WaiNuyHTC', NULL, '2024-04-29 09:14:16', '2024-04-29 09:14:16', 'parent', NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -376,6 +390,7 @@ ALTER TABLE `personal_access_tokens`
 -- Indexes for table `registrations`
 --
 ALTER TABLE `registrations`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `fk_user_id` (`user_id`);
 
 --
@@ -401,7 +416,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -425,7 +440,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `parent_register`
 --
 ALTER TABLE `parent_register`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -434,10 +449,16 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `registrations`
+--
+ALTER TABLE `registrations`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- Rajoitteet vedostauluille

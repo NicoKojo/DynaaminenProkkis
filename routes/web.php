@@ -46,6 +46,9 @@ Route::post('/events/register', [EventController::class, 'registerSubmit'])->nam
 
 // Hakee tapahtumat omasivulle...
 Route::get('/omasivu', [EventController::class, 'eventList'])->name('omasivu');
+// Poistaa käyttäjän rekisteröinnin.
+Route::delete('events/{event}/unregister', [EventController::class, 'unregister'])->name('events.unregister');
+
 
 Route::post('/register/parent', [ParentController::class, 'register'])->name('register.parent');
 // routes/web.php
