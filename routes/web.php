@@ -45,7 +45,7 @@ Route::get('events/register', [EventController::class, 'registerForm'])->name('e
 Route::post('/events/register', [EventController::class, 'registerSubmit'])->name('events.register.submit');
 
 // Hakee tapahtumat omasivulle...
-Route::get('/omasivu', [EventController::class, 'retrieveList'])->name('omasivu');
+Route::get('/omasivu', [EventController::class, 'eventList'])->name('omasivu');
 
 Route::post('/register/parent', [ParentController::class, 'register'])->name('register.parent');
 // routes/web.php

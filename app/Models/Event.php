@@ -11,4 +11,9 @@ class Event extends Model
     protected $fillable = [
         'name', 'location', 'start_time', 'end_time', 'description', 'osallistujat', 
     ];
+
+    public function registrations()
+    {
+        return $this->hasMany(Registration::class);
+    }
 }

@@ -76,10 +76,14 @@ public function destroy(Event $event) //Tapahtuman poisto
 }
 
 //Tapahtumalistauksen tavaraa.
-public function retrieveList()
+public function eventList()
     {
-        $events = Event::all();
-        return view('omasivu', ['events' => $events]);
+        $user = Auth::user();
+        $events = $user->registrations->map(function ($registration) {
+            return $registration->event;
+        });
+
+        return view('omasivu', compact('events'));
     }
 
 }
