@@ -450,10 +450,10 @@ body{margin:0;line-height:inherit}
 }
 
 .linkki1:hover {
-    background-color: lightgray; /* Uusi taustaväri, kun hover */
-    border-color: gray; /* Uusi reunaväri, kun hover */
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); /* Lisää varjo */
-    transform: translate(800px, 90px); /* Siirrä 20 pikseliä oikealle ja 20 pikseliä alaspäin */
+    background-color: lightgray; 
+    border-color: gray; 
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); 
+    transform: translate(800px, 90px);
 }
 
 .linkki

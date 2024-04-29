@@ -6,7 +6,7 @@
     </x-slot>
 
     <div>
-        Tällä sivulla on tietoa tapahtumista, sekä ilmoittautuminen.
+        Tällä sivulla on tietoa tulevista tapahtumista, sekä niihin ilmoittautuminen.
     </div>
 
     <br>
@@ -39,11 +39,38 @@
 
             <div>
                 @if ($event->osallistujat == 1 && Auth::user()->role == 'scout')
-                    <a href="{{ route('events.register') }}" class="btn btn-primary">Ilmoittaudu</a>
+                    <a href="{{ route('events.register') }}" class="btn btn-primary"
+                    style="padding: 4px 2px; 
+                        background-color: #007bff; 
+                        color: #fff; 
+                        border: none; 
+                        border-radius: 5px; 
+                        cursor: pointer; 
+                        font-size: 16px; 
+                        transition: background-color 0.3s ease;
+                        ">Ilmoittaudu tästä</a>
                 @elseif ($event->osallistujat == 2 && (Auth::user()->role == 'scout' || Auth::user()->role == 'parent'))
-                    <a href="{{ route('events.register') }}" class="btn btn-primary">Ilmoittaudu</a>
+                    <a href="{{ route('events.register') }}" class="btn btn-primary"
+                    style="padding: 4px 2px; 
+                        background-color: #007bff; 
+                        color: #fff; 
+                        border: none; 
+                        border-radius: 5px; 
+                        cursor: pointer; 
+                        font-size: 16px; 
+                        transition: background-color 0.3s ease;
+                        ">Ilmoittaudu tästä</a>
                 @elseif ($event->osallistujat == 3)
-                    <a href="{{ route('events.register') }}" class="btn btn-primary">Ilmoittaudu</a>
+                    <a href="{{ route('events.register') }}" class="btn btn-primary"
+                    style="padding: 4px 2px; 
+                        background-color: #007bff; 
+                        color: #fff; 
+                        border: none; 
+                        border-radius: 5px; 
+                        cursor: pointer; 
+                        font-size: 16px; 
+                        transition: background-color 0.3s ease;
+                        ">Ilmoittaudu tästä</a>
                 @endif
             </div>
         </div>

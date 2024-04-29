@@ -15,6 +15,18 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Etusivu') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('omasivu')" :active="request()->routeIs('omasivu')">
+                        {{ __('Omat tiedot') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('lippukunta')" :active="request()->routeIs('lippukunta')">
+                        {{ __('Lippukunnat') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('tapahtumat')" :active="request()->routeIs('tapahtumat')">
+                        {{ __('Tapahtumat') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -35,7 +47,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Profiili') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -45,7 +57,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Kirjaudu ulos') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
